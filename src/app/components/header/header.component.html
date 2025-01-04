@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Log Management</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/logs" routerLinkActive="active">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/creditos" routerLinkActive="active">Créditos</a>
+        </li>
+      </ul>
+      <div class="navbar-nav">
+        <span class="nav-item nav-link text-light">
+          Welcome, {{ authService.currentUserValue?.username }}
+        </span>
+        <button class="btn btn-outline-light" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>

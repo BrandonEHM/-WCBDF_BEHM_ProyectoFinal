@@ -1,15 +1,11 @@
-/*import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
-*/
-
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LogComponent } from './components/log/log.component';
 import { authGuard } from './guard/auth.guard';
-import { CreditosComponent } from './components/creditos/creditos.component';
-export const routes: Routes = [
+
+const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: '',
@@ -17,9 +13,14 @@ export const routes: Routes = [
     canActivate: [authGuard],
     children: [
       { path: 'logs', component: LogComponent },
-      { path: 'creditos', component: CreditosComponent },
       { path: '', redirectTo: 'logs', pathMatch: 'full' }
     ]
   },
   { path: '**', redirectTo: '' }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
